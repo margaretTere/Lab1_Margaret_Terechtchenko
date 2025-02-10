@@ -22,10 +22,13 @@ struct ContentView: View {
                       .foregroundColor(.green)
                       .cornerRadius(10)
                 
-                Image(systemName: "globe")
-                    .imageScale(.large)
-                    .foregroundStyle(.tint)
-                Text("Hello, world!")
+                Text("Prime")
+                    .padding()
+                    .font(.system(size: 40))
+                    .frame(width: 160, height: 70)
+                    .background(Color.white)
+                    .foregroundColor(.green)
+                    .fontWeight(.bold)
             }
             .padding()
             .onAppear {
