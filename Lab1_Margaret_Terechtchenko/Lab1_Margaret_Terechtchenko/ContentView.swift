@@ -13,6 +13,7 @@ struct ContentView: View {
     @State private var attempts: Int = 0
     @State private var showDialog = false
     @State private var buttonClicked: Bool = false
+    @State private var score: Int = 0
     var body: some View {
         ZStack {
             VStack() {
@@ -34,6 +35,9 @@ struct ContentView: View {
                 
                 Button (action: {
                     buttonClicked = true
+                    if isPrime(randomNumber) {
+                        score += 1
+                    }
                 })
                 {
                     Text("Prime")
@@ -47,6 +51,9 @@ struct ContentView: View {
                 
                 Button (action:{
                     buttonClicked = true
+                    if !isPrime(randomNumber) {
+                        score += 1
+                    }
                 })
                 {
                     Text("non Prime")
@@ -78,6 +85,7 @@ struct ContentView: View {
                             showDialog = false
                             attempts = 0
                             buttonClicked = false
+                            score = 0
                         }
                     }
                     .padding()
