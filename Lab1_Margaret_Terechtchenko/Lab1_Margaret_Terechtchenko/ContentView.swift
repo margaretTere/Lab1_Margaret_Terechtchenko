@@ -95,7 +95,7 @@ struct ContentView: View {
                         .font(.title)
                         .padding()
                     
-                    Text("Score out of 10")
+                    Text("Score: \(score) out of 10")
                         .padding()
                     
                     Button("OK") {
@@ -149,6 +149,9 @@ struct ContentView: View {
         }
         if attempts > 0 {
             showResult = true
+        }
+        if(attempts > 0 && !buttonClicked){
+            answerCorrect=false
         }
         buttonClicked = false
         attempts += 1
