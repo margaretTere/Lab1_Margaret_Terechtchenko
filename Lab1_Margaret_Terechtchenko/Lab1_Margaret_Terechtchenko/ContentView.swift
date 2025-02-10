@@ -11,6 +11,7 @@ struct ContentView: View {
     @State private var randomNumber: Int = -1
     @State private var timer: Timer? = nil
     @State private var attempts: Int = 0
+    @State private var showDialog = false
     var body: some View {
         ZStack {
             VStack() {
@@ -60,6 +61,38 @@ struct ContentView: View {
             .onAppear {
                 startTimer()
             }
+            
+            if showDialog {
+                VStack {
+                    Text("Your results")
+                        .font(.title)
+                        .padding()
+                    
+                    Text("Score out of 10")
+                        .padding()
+                    
+                    Button("OK") {
+                        withAnimation {
+                            randomNumber = -1
+                            showDialog = false
+                            attempts = 0
+                        }
+                    }
+                    .padding()
+                }
+                .frame(width: 300, height: 200)
+                .background(Color.white)
+                .cornerRadius(20)
+                .shadow(radius: 10)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(Color.gray, lineWidth: 1)
+                )
+                .padding()
+                .transition(.opacity)
+                .zIndex(1)
+            }
+
         }
     }
     
@@ -80,10 +113,15 @@ struct ContentView: View {
     }
 
     func generateNewNumber() -> Int{
+        if attempts == 10 {
+            showDialog = true
+            return -1
+        }
         attempts += 1
         return Int.random(in: 1...100)
      }
 }
+
 
 func isPrime(_ number: Int) -> Bool {
     if number <= 1 { return false }
