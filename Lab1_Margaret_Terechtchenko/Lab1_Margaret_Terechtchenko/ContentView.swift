@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var randomNumber: Int = -1
+    @State private var timer: Timer? = nil
     var body: some View {
         ZStack {
             VStack {
@@ -28,13 +29,29 @@ struct ContentView: View {
             }
             .padding()
             .onAppear {
-                generateNewNumber()
+                startTimer()
             }
         }
     }
     
-    func generateNewNumber(){
-         randomNumber = Int.random(in: 1...100)
+    func startTimer() {
+            stopTimer()
+            timer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { _ in
+                fillNumber()
+            }
+    }
+
+    func fillNumber() {
+            randomNumber = generateNewNumber()
+    }
+
+    func stopTimer() {
+            timer?.invalidate()
+            timer = nil
+    }
+
+    func generateNewNumber() -> Int{
+        return Int.random(in: 1...100)
      }
 }
 
