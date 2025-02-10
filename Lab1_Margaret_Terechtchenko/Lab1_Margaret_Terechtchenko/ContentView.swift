@@ -29,6 +29,7 @@ struct ContentView: View {
                     .cornerRadius(10)
                 
                 Text("\(randomNumber)")
+                    .opacity(randomNumber > 1 ? 1 : 0)
                     .font(.system(size: 50))
                     .fontWeight(.bold)
                     .frame(width: 200, height: 70)
