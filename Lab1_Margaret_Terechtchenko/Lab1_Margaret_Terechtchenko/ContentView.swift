@@ -146,6 +146,9 @@ struct ContentView: View {
             showDialog = true
             return -1
         }
+        if attempts > 0 {
+            showResult = true
+        }
         buttonClicked = false
         attempts += 1
         return Int.random(in: 1...100)
