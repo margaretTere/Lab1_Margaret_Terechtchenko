@@ -19,7 +19,7 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            VStack() {
+            VStack(spacing:70) {
                 Text("Attempts: \(attempts)")
                     .font(.system(size: 30))
                     .fontWeight(.bold)
