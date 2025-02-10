@@ -29,6 +29,16 @@ struct ContentView: View {
                     .background(Color.white)
                     .foregroundColor(.green)
                     .fontWeight(.bold)
+                
+                
+                Text("non Prime")
+                    .padding()
+                    .font(.system(size: 40))
+                    .frame(width: 260, height: 70)
+                    .background(Color.white)
+                    .foregroundColor(.green)
+                    .fontWeight(.bold)
+                
             }
             .padding()
             .onAppear {
