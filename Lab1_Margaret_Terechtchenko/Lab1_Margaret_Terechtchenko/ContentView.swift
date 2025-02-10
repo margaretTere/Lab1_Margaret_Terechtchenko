@@ -43,7 +43,7 @@ struct ContentView: View {
                         .background(Color.white)
                         .foregroundColor(.green)
                         .fontWeight(.bold)
-                }
+                }.disabled(buttonClicked)
                 
                 Button (action:{
                     buttonClicked = true
@@ -56,7 +56,7 @@ struct ContentView: View {
                         .background(Color.white)
                         .foregroundColor(.green)
                         .fontWeight(.bold)
-                }
+                }.disabled(buttonClicked)
             }
             .padding()
             .onAppear {
