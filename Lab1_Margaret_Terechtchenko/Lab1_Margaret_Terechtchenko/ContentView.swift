@@ -10,35 +10,51 @@ import SwiftUI
 struct ContentView: View {
     @State private var randomNumber: Int = -1
     @State private var timer: Timer? = nil
+    @State private var attempts: Int = 0
     var body: some View {
         ZStack {
-            VStack {
+            VStack() {
+                Text("Attempts: \(attempts)")
+                    .font(.system(size: 30))
+                    .fontWeight(.bold)
+                    .frame(width: 200, height: 70)
+                    .background(Color.white)
+                    .foregroundColor(.green)
+                    .cornerRadius(10)
                 
                 Text("\(randomNumber)")
-                      .font(.system(size: 50))
-                      .fontWeight(.bold)
-                      .frame(width: 200, height: 70)
-                      .background(Color.white)
-                      .foregroundColor(.green)
-                      .cornerRadius(10)
-                
-                Text("Prime")
-                    .padding()
-                    .font(.system(size: 40))
-                    .frame(width: 160, height: 70)
+                    .font(.system(size: 50))
+                    .fontWeight(.bold)
+                    .frame(width: 200, height: 70)
                     .background(Color.white)
                     .foregroundColor(.green)
-                    .fontWeight(.bold)
+                    .cornerRadius(10)
                 
+                Button (action: {
+                  
+                })
+                {
+                    Text("Prime")
+                        .padding()
+                        .font(.system(size: 40))
+                        .frame(width: 160, height: 70)
+                        .background(Color.white)
+                        .foregroundColor(.green)
+                        .fontWeight(.bold)
+                }
                 
-                Text("non Prime")
-                    .padding()
-                    .font(.system(size: 40))
-                    .frame(width: 260, height: 70)
-                    .background(Color.white)
-                    .foregroundColor(.green)
-                    .fontWeight(.bold)
-                
+                Button (action:{
+                    
+                })
+                {
+                    Text("non Prime")
+                        .padding()
+                        .font(.system(size: 40))
+                        .frame(width: 260, height: 70)
+                        .background(Color.white)
+                        .foregroundColor(.green)
+                        .fontWeight(.bold)
+                }
             }
             .padding()
             .onAppear {
@@ -64,6 +80,7 @@ struct ContentView: View {
     }
 
     func generateNewNumber() -> Int{
+        attempts += 1
         return Int.random(in: 1...100)
      }
 }
