@@ -15,6 +15,7 @@ struct ContentView: View {
     @State private var buttonClicked: Bool = false
     @State private var score: Int = 0
     @State private var showResult: Bool = false
+    @State private var answerCorrect: Bool = false
     
     var body: some View {
         ZStack {
@@ -67,17 +68,12 @@ struct ContentView: View {
                         .fontWeight(.bold)
                 }.disabled(buttonClicked)
                 
-                if (showResult) {
-                    Image("xmark.circle.fill")
-                    .foregroundColor( .green)
-
-                    .font(.largeTitle)
-
-                    Image("checkmark.circle.fill")
-                    .foregroundColor( .red)
-                    .font(.largeTitle)
-
+                if showResult || buttonClicked {
+                    Image(systemName: answerCorrect ? "checkmark.circle.fill" : "xmark.circle.fill")
+                        .foregroundColor(answerCorrect ? .green : .red)
+                        .font(.largeTitle)
                 }
+
             }
             .padding()
             .onAppear {
