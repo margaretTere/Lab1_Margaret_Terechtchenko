@@ -103,6 +103,7 @@ struct ContentView: View {
                             showDialog = false
                             attempts = 0
                             buttonClicked = false
+                            answerCorrect = false
                             score = 0
                         }
                     }
