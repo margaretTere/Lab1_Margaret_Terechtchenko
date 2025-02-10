@@ -40,8 +40,12 @@ struct ContentView: View {
                     buttonClicked = true
                     if isPrime(randomNumber) {
                         score += 1
+                        answerCorrect = true
                     }
-                })
+                    else {
+                        answerCorrect = false
+                    }
+                    })
                 {
                     Text("Prime")
                         .padding()
@@ -56,6 +60,10 @@ struct ContentView: View {
                     buttonClicked = true
                     if !isPrime(randomNumber) {
                         score += 1
+                        answerCorrect = true
+                    }
+                    else {
+                        answerCorrect = false
                     }
                 })
                 {
