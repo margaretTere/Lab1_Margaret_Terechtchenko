@@ -12,6 +12,7 @@ struct ContentView: View {
     @State private var timer: Timer? = nil
     @State private var attempts: Int = 0
     @State private var showDialog = false
+    @State private var buttonClicked: Bool = false
     var body: some View {
         ZStack {
             VStack() {
@@ -32,7 +33,7 @@ struct ContentView: View {
                     .cornerRadius(10)
                 
                 Button (action: {
-                  
+                    buttonClicked = true
                 })
                 {
                     Text("Prime")
@@ -45,7 +46,7 @@ struct ContentView: View {
                 }
                 
                 Button (action:{
-                    
+                    buttonClicked = true
                 })
                 {
                     Text("non Prime")
@@ -76,6 +77,7 @@ struct ContentView: View {
                             randomNumber = -1
                             showDialog = false
                             attempts = 0
+                            buttonClicked = false
                         }
                     }
                     .padding()
@@ -117,6 +119,7 @@ struct ContentView: View {
             showDialog = true
             return -1
         }
+        buttonClicked = false
         attempts += 1
         return Int.random(in: 1...100)
      }
